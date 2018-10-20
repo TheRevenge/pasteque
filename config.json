@@ -1,0 +1,6 @@
+{
+  "prefix": "p!",
+  "role": {
+    "staff": "say"
+  }
+}
