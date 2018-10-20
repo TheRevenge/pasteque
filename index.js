@@ -49,6 +49,7 @@ if(command == "prefix") {
     client.user.setActivity(prefix+`help`);
     return message.channel.send('Le nouveau préfixe est `'+prefix+'` !').catch(O_o=>{});
 
+	
 }
 
 if(command == "help") { 
