@@ -1,0 +1,26 @@
+{
+  "name": "pasteque",
+  "version": "1.0.0",
+  "description": "pasteque bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheRevenge/pasteque.git"
+  },
+  "keywords": [
+    "pasteque",
+    "bot"
+  ],
+  "author": "Energy team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TheRevenge/pasteque/issues"
+  },
+  "homepage": "https://github.com/TheRevenge/pasteque#readme",
+  "dependencies": {
+    "discord.js": "^11.4.2"
+  }
+}
