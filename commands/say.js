@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-module.exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, args, command, config, fs) => {
 
       if(command == "say") {
   	if(!message.member.roles.some(r=>[config.role.staff].includes(r.name)))
