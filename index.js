@@ -1,6 +1,12 @@
-const Discord = require('discord.js');
-const client = new Discord.Client();
+const Discord = require("discord.js");
 const fs = require("fs");
+const client = new Discord.Client({disableEveryone: true});
+client.commands = new Discord.Collection();
+
+let rawconfig = fs.readFileSync('config.json');  
+let config = JSON.parse(rawconfig);
+let token = process.env.TOKEN;
+
 
 fs.readdir("./commands/", (err, files) => {
 
@@ -18,24 +24,24 @@ fs.readdir("./commands/", (err, files) => {
   });
 });
 
+
 client.on("ready", () => {
-  let rawdata = fs.readFileSync('config.json');  
-  let config = JSON.parse(rawdata);
-  console.log('ready'+client.guilds.size+"serveurs | "+config.prefix+`help`);
-  client.user.setActivity(client.guilds.size+"serveurs | "+config.prefix+`help`, {type: "WATCHING"});
+  console.log('ready '+client.guilds.size+" serveurs | "+config.prefix+`help`);
+  client.user.setActivity(client.guilds.size+" serveurs | "+config.prefix+`help`, {type: "WATCHING"});
 });
 
 client.on("message", async message => {
-let rawdconfig = fs.readFileSync('config.json');  
-let config = JSON.parse(rawconfig);
 const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
 const command = args.shift().toLowerCase();
 
 if(message.content.indexOf(config.prefix) !== 0) return;
 if (!message.content.startsWith(config.prefix) || message.author.bot) return;
 
-  let commandfile = client.commands.get(cmd.slice(prefix.length));
-  if(commandfile) commandfile.run(client,message,args);
+  let messageArray = message.content.split(" ");
+  let cmd = messageArray[0];
+  let commandfile = client.commands.get(cmd.slice(config.prefix.length));
+  if(commandfile) commandfile.run(client,message,args,command,config,fs);
+
 
 });
-client.login(process.env.TOKEN);
+client.login(token);
