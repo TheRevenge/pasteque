@@ -10,9 +10,15 @@ module.exports.run = async (client, message, args, command, config, fs) => {
       return message.channel.send('Vous devez écrire un message !')
     }
 
-    const sayMessage = args.join(" ");
-    message.delete().catch(O_o=>{}); 
-    return message.channel.send(sayMessage);
+
+	const sayMessage = args.join(" ");
+    message.delete().catch(O_o=>{});
+	if (message.author.id == "372778933839593483") {
+		return message.channel.send('[Object] [Object]');
+	} else { 
+    message.channel.send(sayMessage);
+	}
+
 	}
 
 }
